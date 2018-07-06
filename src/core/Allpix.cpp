@@ -144,7 +144,7 @@ void Allpix::load() {
     }
 
     // Initialize ROOT random generator
-    gRandom->SetSeed(seeder_modules());
+    /* gRandom->SetSeed(seeder_modules()); */
 
     // Get output directory
     std::string directory = gSystem->pwd();
