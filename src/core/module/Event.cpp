@@ -72,7 +72,7 @@ void Event::run_geant4() {
 
 
     // Execute every module up to and including the last Geant4 module
-    int modules_to_remove = 0;
+    unsigned int modules_to_remove = 0;
     for(auto& module : modules_) {
         if(module == first_after_last_geant4) {
             // All Geant4 module have been executed
@@ -84,7 +84,7 @@ void Event::run_geant4() {
         modules_to_remove++;
     }
 
-    for(int i = 0; i < modules_to_remove; i++) {
+    for(unsigned int i = 0; i != modules_to_remove; i++) {
         modules_.pop_front();
     }
 
