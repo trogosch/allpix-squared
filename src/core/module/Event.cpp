@@ -60,6 +60,8 @@ Event::Event(ModuleList modules,
  * Runs all modules up to and including the last Geant4 module and pops them from the \ref Event::modules_ "list of modules".
  */
 void Event::run_geant4() {
+    LOG(TRACE) << "Searching for the last geant4 module...";
+
     auto first_after_last_geant4 = [&]() {
         // Find the last Geant4 module from the bottom of the list up
         auto last_geant4 = std::find_if(modules_.crbegin(), modules_.crend(), [](const auto& module) {
@@ -70,6 +72,7 @@ void Event::run_geant4() {
         return *std::prev(last_geant4, 1);
     }();
 
+    LOG(TRACE) << "Found the last geant4 module!";
 
     // Execute every module up to and including the last Geant4 module
     unsigned int modules_to_remove = 0;
