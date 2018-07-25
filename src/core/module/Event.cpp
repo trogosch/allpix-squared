@@ -70,9 +70,10 @@ void Event::run_geant4() {
         return *std::prev(last_geant4, 1);
     }();
 
+
     // Execute every module up to and including the last Geant4 module
-    while(!modules_.empty()) {
-        auto module = modules_.front();
+    int modules_to_remove = 0;
+    for(auto& module : modules_) {
         if(module == first_after_last_geant4) {
             // All Geant4 module have been executed
             break;
@@ -80,9 +81,10 @@ void Event::run_geant4() {
 
         LOG(DEBUG) << module->getUniqueName() << " is a Geant4 module; running on main thread";
         run(module);
+        modules_to_remove++;
+    }
 
-        // XXX: Could this be the cause of the GitLab segfaults? Removing elements invalidating stuff?
-        // Try removing stuff after everything has been run
+    for(int i = 0; i < modules_to_remove; i++) {
         modules_.pop_front();
     }
 
