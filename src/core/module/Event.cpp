@@ -77,8 +77,11 @@ void Event::run_geant4() {
     // Execute every module up to and including the last Geant4 module
     unsigned int modules_to_remove = 0;
     for(auto& module : modules_) {
+
+        LOG(TRACE) << "Comparing current module with last Geant4 module";
         if(module == first_after_last_geant4) {
             // All Geant4 module have been executed
+            LOG(TRACE) << "All Geant4 modules have been run, popping them from list...";
             break;
         }
 
