@@ -61,6 +61,20 @@ Event::Event(ModuleList modules,
  * Runs all modules up to and including the last Geant4 module and pops them from the \ref Event::modules_ "list of modules".
  */
 void Event::run_geant4() {
+    LOG(DEBUG) << "Running Geant4 modules...";
+
+    for(auto& module : modules_) {
+        if(module->getUniqueName().find("Geant4") == std::string::npos) {
+            // All Geant4 modules have been run
+            break;
+        }
+
+        LOG(DEBUG) << module->getUniqueName() << " is a Geant4 module; running on main thread";
+        run(module);
+        modules_.pop_front();
+    }
+
+#if 0
     auto first_after_last_geant4 = [&]() {
         // Find the last Geant4 module from the bottom of the list up
         auto last_geant4 = std::find_if(modules_.crbegin(), modules_.crend(), [](const auto& module) {
@@ -92,6 +106,7 @@ void Event::run_geant4() {
     for(auto& module : modules_) {
         assert(module->getUniqueName().find("Geant4") == std::string::npos);
     }
+#endif
 #endif
 }
 
