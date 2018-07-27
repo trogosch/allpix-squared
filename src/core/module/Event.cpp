@@ -46,7 +46,7 @@ Event::Event(ModuleList modules,
              std::map<Module*, long double>& module_execution_time,
              Messenger* messenger,
              std::mt19937_64& seeder)
-    : number(event_num), modules_(std::move(modules)), terminate_(terminate), master_condition_(master_condition),
+    : number(event_num), modules_(modules), terminate_(terminate), master_condition_(master_condition),
       module_execution_time_(module_execution_time), delegates_(messenger->delegates_) {
     random_engine_.seed(seeder());
 #ifndef NDEBUG
