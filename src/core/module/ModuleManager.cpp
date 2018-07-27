@@ -633,7 +633,7 @@ void ModuleManager::run(Messenger* messenger, std::mt19937_64& seeder) {
         auto event = std::make_shared<ConcreteEvent>(
             modules_, i, terminate_, master_condition, module_execution_time_, messenger, seeder);
         // Event initialization must be done on the main thread
-        /* event->run_geant4(); */
+        event->run_geant4();
         auto event_function = [ event = std::move(event), number_of_events, event_num = i, &finished_events ]() mutable {
             LOG_PROGRESS(STATUS, "EVENT_LOOP") << "Running event " << event_num << " of " << number_of_events;
             event->run();
