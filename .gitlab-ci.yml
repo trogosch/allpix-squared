@@ -156,6 +156,10 @@ fmt:slc6-llvm-format:
         - source .gitlab-ci.d/init_x86_64.sh
         - cd build/
         - ninja check-format
+    artifacts:
+        paths:
+            - /builds/allpix-squared/allpix-squared-github-mirror/build/check_format_file.txt
+        expire_in: 3 hour
 
 fmt:slc6-llvm-lint:
     stage: formatting
@@ -185,6 +189,10 @@ fmt:cc7-llvm-format:
         - source .gitlab-ci.d/init_x86_64.sh
         - cd build/
         - ninja check-format
+    artifacts:
+        paths:
+            - /builds/allpix-squared/allpix-squared-github-mirror/build/check_format_file.txt
+        expire_in: 3 hour
 
 fmt:cc7-llvm-lint:
     stage: formatting
