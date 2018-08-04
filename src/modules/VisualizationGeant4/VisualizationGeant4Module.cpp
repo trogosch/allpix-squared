@@ -85,7 +85,7 @@ VisualizationGeant4Module::~VisualizationGeant4Module() {
     }
 }
 
-void VisualizationGeant4Module::init(std::mt19937_64&) {
+void VisualizationGeant4Module::init(uint64_t) {
     // Suppress all geant4 output
     SUPPRESS_STREAM(G4cout);
 

@@ -41,7 +41,7 @@ namespace allpix {
         /**
          * @brief [Initialise this module]
          */
-        void init(std::mt19937_64&) override;
+        void init(uint64_t) override;
 
         /**
          * @brief [Run the function of this module]

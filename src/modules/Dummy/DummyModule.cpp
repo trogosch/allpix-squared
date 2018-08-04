@@ -24,7 +24,7 @@ DummyModule::DummyModule(Configuration& config, Messenger* messenger, GeometryMa
     messenger_->bindMulti<DummyModule, PixelHitMessage, MsgFlags::REQUIRED>(this);
 }
 
-void DummyModule::init(std::mt19937_64&) {
+void DummyModule::init(uint64_t) {
     // Loop over detectors and do something
     std::vector<std::shared_ptr<Detector>> detectors = geo_manager_->getDetectors();
     for(auto& detector : detectors) {

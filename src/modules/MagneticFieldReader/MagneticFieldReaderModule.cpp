@@ -31,7 +31,7 @@ using namespace allpix;
 MagneticFieldReaderModule::MagneticFieldReaderModule(Configuration& config, Messenger*, GeometryManager* geoManager)
     : Module(config), geometryManager_(geoManager) {}
 
-void MagneticFieldReaderModule::init(std::mt19937_64&) {
+void MagneticFieldReaderModule::init(uint64_t) {
     MagneticFieldType type = MagneticFieldType::NONE;
 
     // Check field strength

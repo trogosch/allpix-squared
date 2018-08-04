@@ -44,7 +44,7 @@ namespace allpix {
         /**
          * @brief Initialize - create plots if needed
          */
-        void init(std::mt19937_64&) override;
+        void init(uint64_t) override;
 
         /**
          * @brief Projection of the electrons to the surface
