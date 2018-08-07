@@ -11,7 +11,6 @@
 #define ALLPIX_MC_TRACK_H
 
 #include <Math/Point3D.h>
-#include <TRef.h>
 
 #include "Object.hpp"
 
@@ -133,10 +132,6 @@ namespace allpix {
         void print(std::ostream& out) const override;
 
         /**
-         * @brief ROOT class definition
-         */
-        ClassDefOverride(MCTrack, 1);
-        /**
          * @brief Default constructor for ROOT I/O
          */
         MCTrack() = default;
@@ -157,7 +152,7 @@ namespace allpix {
         double initial_tot_E_{};
         double final_tot_E_{};
 
-        TRef parent_;
+        Object* parent_;
     };
 
     /**

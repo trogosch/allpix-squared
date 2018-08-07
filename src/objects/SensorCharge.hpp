@@ -74,10 +74,6 @@ namespace allpix {
         double getEventTime() const;
 
         /**
-         * @brief ROOT class definition
-         */
-        ClassDefOverride(SensorCharge, 2);
-        /**
          * @brief Default constructor for ROOT I/O
          */
         SensorCharge() = default;

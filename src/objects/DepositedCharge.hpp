@@ -10,8 +10,6 @@
 #ifndef ALLPIX_DEPOSITED_CHARGE_H
 #define ALLPIX_DEPOSITED_CHARGE_H
 
-#include <TRef.h>
-
 #include "MCParticle.hpp"
 #include "SensorCharge.hpp"
 
@@ -52,16 +50,12 @@ namespace allpix {
         void setMCParticle(const MCParticle* mc_particle);
 
         /**
-         * @brief ROOT class definition
-         */
-        ClassDefOverride(DepositedCharge, 2);
-        /**
          * @brief Default constructor for ROOT I/O
          */
         DepositedCharge() = default;
 
     private:
-        TRef mc_particle_;
+        Object* mc_particle_;
     };
 
     /**

@@ -50,17 +50,13 @@ namespace allpix {
         const MCParticle* getMCParticle() const;
 
         /**
-         * @brief ROOT class definition
-         */
-        ClassDefOverride(PropagatedCharge, 3);
-        /**
          * @brief Default constructor for ROOT I/O
          */
         PropagatedCharge() = default;
 
     private:
-        TRef deposited_charge_;
-        TRef mc_particle_{nullptr};
+        Object* deposited_charge_;
+        Object* mc_particle_{nullptr};
     };
 
     /**

@@ -13,7 +13,6 @@
 #include <Math/DisplacementVector2D.h>
 #include <Math/Point3D.h>
 #include <Math/Vector2D.h>
-#include <TObject.h>
 
 namespace allpix {
     /**
@@ -59,10 +58,6 @@ namespace allpix {
          * @brief ROOT class definition
          */
         Pixel() = default;
-        /**
-         * @brief Default constructor for ROOT I/O
-         */
-        ClassDef(Pixel, 1);
 
     private:
         Pixel::Index index_;

@@ -45,7 +45,7 @@ Pixel::Index PixelHit::getIndex() const {
  * Object is stored as TRef and can only be accessed if pointed object is in scope
  */
 const PixelCharge* PixelHit::getPixelCharge() const {
-    auto pixel_charge = dynamic_cast<PixelCharge*>(pixel_charge_.GetObject());
+    auto pixel_charge = dynamic_cast<PixelCharge*>(pixel_charge_);
     if(pixel_charge == nullptr) {
         throw MissingReferenceException(typeid(*this), typeid(PixelCharge));
     }
@@ -64,7 +64,7 @@ std::vector<const MCParticle*> PixelHit::getMCParticles() const {
         if(mc_particle == nullptr) {
             throw MissingReferenceException(typeid(*this), typeid(MCParticle));
         }
-        mc_particles.emplace_back(dynamic_cast<MCParticle*>(mc_particle.GetObject()));
+        mc_particles.emplace_back(dynamic_cast<MCParticle*>(mc_particle));
     }
 
     // Return as a vector of mc particles

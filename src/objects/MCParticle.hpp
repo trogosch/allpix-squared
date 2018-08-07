@@ -11,7 +11,6 @@
 #define ALLPIX_MC_PARTICLE_H
 
 #include <Math/Point3D.h>
-#include <TRef.h>
 
 #include "MCTrack.hpp"
 #include "Object.hpp"
@@ -100,10 +99,6 @@ namespace allpix {
         const MCTrack* getTrack() const;
 
         /**
-         * @brief ROOT class definition
-         */
-        ClassDefOverride(MCParticle, 6);
-        /**
          * @brief Default constructor for ROOT I/O
          */
         MCParticle() = default;
@@ -123,8 +118,8 @@ namespace allpix {
         int particle_id_{};
         double time_{};
 
-        TRef parent_;
-        TRef track_;
+        Object* parent_;
+        Object* track_;
     };
 
     /**

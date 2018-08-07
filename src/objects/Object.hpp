@@ -26,7 +26,7 @@ namespace allpix {
      * @ingroup Objects
      * @brief Base class for internal objects
      */
-    class Object : public TObject {
+    class Object {
     public:
         friend std::ostream& operator<<(std::ostream& out, const allpix::Object& obj);
 
@@ -37,7 +37,7 @@ namespace allpix {
         /**
          * @brief Required virtual destructor
          */
-        ~Object() override = default;
+        ~Object() = default;
 
         /// @{
         /**
@@ -55,11 +55,6 @@ namespace allpix {
         Object& operator=(Object&&);
         /// @}
 
-        /**
-         * @brief ROOT class definition
-         */
-        ClassDefOverride(Object, 2);
-
     protected:
         /**
          * @brief Print an ASCII representation of this Object to the given stream
@@ -71,7 +66,7 @@ namespace allpix {
          * @brief Override function to implement ROOT Print()
          * @warning Should not be used inside the framework but might assist in inspecting ROOT files with these objects.
          */
-        void Print(Option_t*) const override {
+        void Print(Option_t*) const {
             print(std::cout);
             std::cout << std::endl;
         }

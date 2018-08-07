@@ -12,8 +12,6 @@
 
 #include <Math/DisplacementVector2D.h>
 
-#include <TRef.h>
-
 #include "MCParticle.hpp"
 #include "Object.hpp"
 #include "PixelCharge.hpp"
@@ -75,10 +73,6 @@ namespace allpix {
         void print(std::ostream& out) const override;
 
         /**
-         * @brief ROOT class definition
-         */
-        ClassDefOverride(PixelHit, 4);
-        /**
          * @brief Default constructor for ROOT I/O
          */
         PixelHit() = default;
@@ -88,8 +82,8 @@ namespace allpix {
         double time_{};
         double signal_{};
 
-        TRef pixel_charge_;
-        std::vector<TRef> mc_particles_;
+        Object* pixel_charge_;
+        std::vector<Object*> mc_particles_;
     };
 
     /**
