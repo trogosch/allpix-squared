@@ -1,6 +1,7 @@
-Fork of allpix2.
-Added a module in order to generate output in a similar structure like the EPICAL-2 test beam data.
-
+This is a fork of allpix-squared in order to modify and make changes to the origin:
+Goal: A simulation for EPICAL-2 test-beam data.
+Special module is added to generate similar output (in terms of data structure) like test beam data.
+In addition some modules are modified for this purpose.
 
 [![](doc/logo_small.png)](https://cern.ch/allpix-squared)
 
