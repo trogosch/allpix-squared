@@ -1,3 +1,7 @@
+Fork of allpix2.
+Added a module in order to generate output in a similar structure like the EPICAL-2 test beam data.
+
+
 [![](doc/logo_small.png)](https://cern.ch/allpix-squared)
 
 # Allpix<sup>2</sup>
