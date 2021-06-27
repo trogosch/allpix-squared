@@ -68,6 +68,12 @@ namespace allpix {
         ROOT::Math::XYZPoint getLocalReferencePoint() const;
 
         /**
+        * @brief get angle to z-axis calculated from straight line approximation using start/end point of MC particle
+        * @return Angle to z-axis
+        */
+        double getAngleToZAxis() const;
+
+        /**
          * @brief Get PDG particle id for the particle
          * @return Particle id
          */
