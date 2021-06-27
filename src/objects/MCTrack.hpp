@@ -95,6 +95,24 @@ namespace allpix {
         double getTotalEnergyFinal() const;
 
         /**
+         * @brief Getter for the angle of a Track relative to the z-axis
+         * @return angle to z axis
+         */
+        double getAngleToZAxis() const;
+
+        /**
+         * @brief Getter for the length of a Track in the z-direction
+         * @return length of a track in z direction
+         */
+        double getTrackLengthZ() const;
+
+        /**
+         * @brief Getter for the total length of a Track
+         * @return length of track
+         */
+        double getTrackLength() const;
+
+        /**
          * @brief Getter for the Geant4 name of the physical volume in which the track originated
          * @return The name of the phyical volume
          */

@@ -62,6 +62,35 @@ double MCTrack::getTotalEnergyFinal() const {
     return final_tot_E_;
 }
 
+double MCTrack::getAngleToZAxis() const {
+  // Direction for parametric equation of line through start/end points
+  auto direction =
+  static_cast<ROOT::Math::XYZVector>(end_point_) - static_cast<ROOT::Math::XYZVector>(start_point_);
+
+  auto x = direction.x();
+  auto y = direction.y();
+  auto z = direction.z();
+
+  return TMath::ACos( z / sqrt(x*x + y*y + z*z) );
+  // return TMath::ASin( sqrt(x*x + y*y) / sqrt(x*x + y*y + z*z) );
+}
+
+double MCTrack::getTrackLength() const {
+  // Direction for parametric equation of line through start/end points
+  auto direction =
+  static_cast<ROOT::Math::XYZVector>(end_point_) - static_cast<ROOT::Math::XYZVector>(start_point_);
+
+  return sqrt( direction.x()*direction.x() + direction.y()*direction.y() + direction.z()*direction.z() );
+}
+
+double MCTrack::getTrackLengthZ() const {
+  // Direction for parametric equation of line through start/end points
+  auto direction =
+  static_cast<ROOT::Math::XYZVector>(end_point_) - static_cast<ROOT::Math::XYZVector>(start_point_);
+
+  return direction.z();
+}
+
 std::string MCTrack::getOriginatingVolumeName() const {
     return origin_g4_vol_name_;
 }
