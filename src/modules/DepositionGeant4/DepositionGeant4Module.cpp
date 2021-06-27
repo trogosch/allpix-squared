@@ -238,6 +238,17 @@ void DepositionGeant4Module::initialize() {
     physicsList->SetVerboseLevel(0);
     G4NuclearLevelData::GetInstance()->GetParameters()->SetVerbose(0);
 
+    // std::cout << "\n\n inactivate process " << std::endl;
+    //Activate/inactivate certain GEANT4 processes
+    // ui_g4->ApplyCommand("/process/inactivate compt"); //compton scattering, das electronen produziert
+    // ui_g4->ApplyCommand("/process/inactivate eBrem"); //Photonen aus Bremsstrahlung
+    // ui_g4->ApplyCommand("/process/inactivate conv"); //Photon conversion in e+e-
+    // ui_g4->ApplyCommand("/process/inactivate phot"); // Photo-electric effect producing e- and also gammas??
+    // ui_g4->ApplyCommand("/process/inactivate eIoni"); //Ionisation and delta ray production
+    // ui_g4->ApplyCommand("/process/inactivate annihil"); //Annihilation was photonen produziert
+    // std::cout << " done process inactivated! \t" << std::endl;
+
+
     // Initialize the full run manager to ensure correct state flags
     run_manager_g4_->Initialize();
 
