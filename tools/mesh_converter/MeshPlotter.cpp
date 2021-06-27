@@ -217,6 +217,16 @@ int main(int argc, char** argv) {
                                      y_bin + 1);
 
         auto* c1 = new TCanvas();
+        const float leftmargin   = 0.14;
+        const float rightmargin  = 0.13;
+        const float bottommargin = 0.135;
+        const float topmargin    = 0.08;
+        c1->SetTopMargin(topmargin);
+        c1->SetBottomMargin(bottommargin);
+        c1->SetLeftMargin(leftmargin);
+        c1->SetRightMargin(rightmargin);
+        c1->SetTickx();
+        c1->SetTicky();
 
         if(log_scale) {
             c1->SetLogz();
@@ -232,12 +242,18 @@ int main(int argc, char** argv) {
                     if(plane == "xy") {
                         plot_x = static_cast<int>(x);
                         plot_y = static_cast<int>(y);
+                        efield_map->GetXaxis()->SetTitle("x (a.u.)");
+                        efield_map->GetYaxis()->SetTitle("y (a.u.)");
                     } else if(plane == "yz") {
                         plot_x = static_cast<int>(y);
                         plot_y = static_cast<int>(z);
+                        efield_map->GetXaxis()->SetTitle("y (a.u.)");
+                        efield_map->GetYaxis()->SetTitle("z (a.u.)");
                     } else {
                         plot_x = static_cast<int>(z);
                         plot_y = static_cast<int>(x);
+                        efield_map->GetXaxis()->SetTitle("z (a.u.)");
+                        efield_map->GetYaxis()->SetTitle("x (a.u.)");
                     }
 
                     if(quantity == FieldQuantity::VECTOR) {
@@ -276,6 +292,22 @@ int main(int argc, char** argv) {
 
         efield_map->Write(Form("%s Norm", observable.c_str()));
         c1->cd();
+        const float font = 49;
+        const float size = 22;
+        efield_map->Sumw2();
+        efield_map->SetStats(0);
+        efield_map->SetTitleOffset (1.6,"Y");
+        efield_map->SetTitleOffset (1.2,"X");
+        efield_map->GetXaxis() -> SetTitleFont(font);
+        efield_map->GetXaxis() -> SetTitleSize(size);
+        efield_map->GetYaxis() -> SetTitleFont(font);
+        efield_map->GetYaxis() -> SetTitleSize(size);
+        efield_map->GetXaxis() -> SetLabelFont(font);
+        efield_map->GetXaxis() -> SetLabelSize(size);
+        efield_map->GetYaxis() -> SetLabelFont(font);
+        efield_map->GetYaxis() -> SetLabelSize(size);
+        efield_map->SetMarkerStyle(20);
+        efield_map->SetMarkerSize(1.1);
         efield_map->Draw("colz");
         c1->SaveAs(output_file_name.c_str());
         tf->Close();
